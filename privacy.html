@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Qurio</title>
+    <meta
+      name="description"
+      content="Privacy Policy for Qurio, a Q&amp;A app for Atlassian Confluence Cloud built on Atlassian Forge."
+    />
+    <style>
+      :root {
+        --fg: #172b4d;
+        --muted: #5e6c84;
+        --link: #0c66e4;
+        --border: #dfe1e6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Helvetica, Arial, sans-serif;
+        color: var(--fg);
+        line-height: 1.65;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      h1 {
+        font-size: 28px;
+        margin: 0 0 4px;
+      }
+      h2 {
+        font-size: 19px;
+        margin: 32px 0 8px;
+      }
+      .updated {
+        color: var(--muted);
+        margin: 0 0 24px;
+      }
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 24px;
+        font-size: 14px;
+      }
+      footer {
+        margin-top: 48px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 14px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 12px 0;
+      }
+      th,
+      td {
+        border: 1px solid var(--border);
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+        font-size: 15px;
+      }
+      th {
+        background: #f4f5f7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="./index.html">← Qurio</a>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: 19 October 2026</p>
+
+      <p>
+        This Privacy Policy explains how <strong>Qurio — Q&amp;A for
+        Confluence</strong> ("Qurio", "the app", "we", "us") handles information
+        when it is installed and used in an Atlassian Confluence Cloud instance.
+        Qurio is published by <strong>nxb labs</strong>.
+      </p>
+
+      <h2>1. Where Qurio runs and stores data</h2>
+      <p>
+        Qurio is an <strong>Atlassian Forge</strong> app. It runs entirely on
+        Atlassian-operated infrastructure and stores all of its data in
+        <strong>Forge Storage</strong>, which is hosted by Atlassian and resides
+        within your Atlassian Cloud environment. We do <strong>not</strong>
+        operate any external server, database, or backend of our own, and your
+        content is <strong>never transmitted to nxb labs</strong> or to any
+        third party outside Atlassian's platform.
+      </p>
+
+      <h2>2. What data Qurio processes</h2>
+      <p>
+        Qurio only processes data that users create or that Atlassian provides to
+        the app in order to render its features:
+      </p>
+      <table>
+        <tr>
+          <th>Data</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td>Questions, answers, comments, tags, votes and "accepted answer" status</td>
+          <td>Core Q&amp;A functionality that users explicitly enter.</td>
+        </tr>
+        <tr>
+          <td>Atlassian <code>accountId</code> and public display name of the acting user</td>
+          <td>To attribute questions/answers, compute statistics and expert rankings, and manage moderators and permissions.</td>
+        </tr>
+        <tr>
+          <td>Space key and page ID references</td>
+          <td>To scope content to a space and link questions back to their source page.</td>
+        </tr>
+        <tr>
+          <td>Group membership (via Confluence API, read only)</td>
+          <td>To enforce "who can ask / answer" permission settings when configured.</td>
+        </tr>
+        <tr>
+          <td>In-app notifications</td>
+          <td>To notify a question's author or followers about new or accepted answers.</td>
+        </tr>
+        <tr>
+          <td>Per-macro and instance configuration (e.g. heading, scope, display mode)</td>
+          <td>To remember how each embedded macro and the instance is configured.</td>
+        </tr>
+      </table>
+      <p>
+        Qurio does <strong>not</strong> collect email addresses, IP addresses,
+        passwords, payment information, or any special categories of personal
+        data. It does <strong>not</strong> use cookies or third-party analytics,
+        and it does <strong>not</strong> perform any AI/LLM processing of your
+        content.
+      </p>
+
+      <h2>3. How data is used</h2>
+      <p>
+        Data is used solely to provide the app's functionality inside your
+        Confluence instance. We do <strong>not</strong> sell, rent, share, or use
+        your data for advertising, profiling, or any purpose unrelated to
+        operating the app.
+      </p>
+
+      <h2>4. Access by nxb labs</h2>
+      <p>
+        Because all data stays in Forge Storage inside your instance, nxb labs
+        has <strong>no routine access</strong> to your content. Forge lets app
+        developers read application logs for troubleshooting; we only review logs
+        if you contact us with a support request, and we ask you not to include
+        sensitive information in support correspondence.
+      </p>
+
+      <h2>5. Data retention and deletion</h2>
+      <p>
+        Content remains in Forge Storage until it is deleted through the app or
+        until the app is uninstalled. When you <strong>uninstall Qurio</strong>,
+        Atlassian removes the app's Forge Storage data according to the Forge
+        platform lifecycle. You can also delete individual questions and answers
+        from within the app.
+      </p>
+
+      <h2>6. Sub-processors</h2>
+      <p>
+        Qurio's only infrastructure provider is <strong>Atlassian</strong>, which
+        hosts the Forge runtime and storage. See Atlassian's
+        <a href="https://www.atlassian.com/legal/privacy-policy" rel="noopener" target="_blank">Privacy Policy</a>
+        and
+        <a href="https://www.atlassian.com/trust" rel="noopener" target="_blank">Trust Center</a>
+        for details about their data handling.
+      </p>
+
+      <h2>7. Your rights</h2>
+      <p>
+        Because your Confluence administrator controls the instance and its data,
+        requests to access, correct, or delete personal data are handled through
+        your organization's Atlassian administration. We will assist controllers
+        with such requests on reasonable notice via the contact below.
+      </p>
+
+      <h2>8. Changes to this policy</h2>
+      <p>
+        We may update this policy as the app evolves. Material changes will be
+        reflected on this page with a new "Last updated" date.
+      </p>
+
+      <h2>9. Contact</h2>
+      <p>
+        Questions about privacy? Contact nxb labs at
+        <a href="mailto:martinnxb@gmail.com">martinnxb@gmail.com</a>.
+      </p>
+
+      <footer>
+        Qurio — Q&amp;A for Confluence · published by nxb labs ·
+        <a href="./terms.html">Terms of Service</a>
+      </footer>
+    </div>
+  </body>
+</html>
