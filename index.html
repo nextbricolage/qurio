@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Qurio Q&amp;A for Confluence</title>
+    <title>Qurio — Q&amp;A &amp; FAQ for Confluence</title>
     <meta
       name="description"
-      content="Qurio is a questions &amp; answers app for Atlassian Confluence Cloud, built on Atlassian Forge. Your data stays inside your Atlassian instance."
+      content="Qurio is a fast, private questions &amp; answers and FAQ app for Atlassian Confluence Cloud, built on Atlassian Forge. Full-text search, voting, accepted answers, embeddable macros. Your data stays inside your Atlassian instance."
     />
     <style>
       :root {
@@ -15,6 +15,8 @@
         --link: #0c66e4;
         --border: #dfe1e6;
         --bg: #ffffff;
+        --soft: #f4f5f7;
+        --radius: 10px;
       }
       * {
         box-sizing: border-box;
@@ -27,41 +29,6 @@
         background: var(--bg);
         line-height: 1.6;
       }
-      .wrap {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 48px 24px 80px;
-      }
-      header {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 8px;
-      }
-      .logo {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        background: linear-gradient(135deg, #0c66e4, #6554c0);
-        color: #fff;
-        font-weight: 700;
-        font-size: 22px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      h1 {
-        font-size: 28px;
-        margin: 0;
-      }
-      .tagline {
-        color: var(--muted);
-        margin: 4px 0 32px;
-      }
-      h2 {
-        font-size: 18px;
-        margin: 32px 0 8px;
-      }
       a {
         color: var(--link);
         text-decoration: none;
@@ -69,14 +36,196 @@
       a:hover {
         text-decoration: underline;
       }
-      ul {
-        padding-left: 20px;
+      .wrap {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      /* Hero */
+      .hero {
+        background: linear-gradient(135deg, #0c66e4 0%, #6554c0 100%);
+        color: #fff;
+        padding: 56px 0 64px;
+      }
+      .hero .wrap {
+        text-align: center;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.16);
+        color: #fff;
+        font-weight: 700;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .brand-name {
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .hero h1 {
+        font-size: 34px;
+        line-height: 1.25;
+        margin: 8px 0 12px;
+      }
+      .hero p.tagline {
+        font-size: 18px;
+        opacity: 0.95;
+        max-width: 620px;
+        margin: 0 auto 28px;
+      }
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 22px;
+        border-radius: 8px;
+        font-weight: 600;
+        border: 1px solid transparent;
+      }
+      .btn-primary {
+        background: #fff;
+        color: #0c66e4;
+      }
+      .btn-primary:hover {
+        text-decoration: none;
+        background: #f0f4ff;
+      }
+      .btn-ghost {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+      .btn-ghost:hover {
+        text-decoration: none;
+        border-color: #fff;
+      }
+      .hero .trial {
+        margin-top: 16px;
+        font-size: 14px;
+        opacity: 0.9;
+      }
+      /* Sections */
+      section {
+        padding: 48px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      h2 {
+        font-size: 24px;
+        margin: 0 0 8px;
+      }
+      .section-intro {
+        color: var(--muted);
+        margin: 0 0 28px;
+        max-width: 640px;
+      }
+      /* Highlights */
+      .highlight {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: center;
+        margin: 36px 0;
+      }
+      .highlight:nth-child(even) .hl-media {
+        order: -1;
+      }
+      .hl-text h3 {
+        font-size: 19px;
+        margin: 0 0 8px;
+      }
+      .hl-text p {
+        margin: 0;
+        color: var(--fg);
+      }
+      .hl-media img {
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: 0 4px 16px rgba(9, 30, 66, 0.12);
+        display: block;
+      }
+      .hl-media .placeholder {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        border: 1px dashed var(--border);
+        border-radius: var(--radius);
+        background: var(--soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 14px;
+        text-align: center;
+        padding: 12px;
+      }
+      /* Why list */
+      .why {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 28px;
+      }
+      .why li {
+        padding-left: 28px;
+        position: relative;
+      }
+      .why li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #22a06b;
+        font-weight: 700;
+      }
+      .why strong {
+        display: block;
+      }
+      .why span {
+        color: var(--muted);
+      }
+      /* Pricing */
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 12px 0 8px;
+      }
+      th,
+      td {
+        border: 1px solid var(--border);
+        padding: 8px 12px;
+        text-align: left;
+        font-size: 15px;
+      }
+      th {
+        background: var(--soft);
+      }
+      .price-note {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 4px 0 0;
       }
       .links {
         display: flex;
         gap: 12px;
         flex-wrap: wrap;
-        margin: 24px 0;
+        margin-top: 8px;
       }
       .links a {
         display: inline-block;
@@ -91,49 +240,265 @@
         text-decoration: none;
       }
       footer {
-        margin-top: 48px;
-        padding-top: 16px;
-        border-top: 1px solid var(--border);
+        padding: 28px 0 56px;
         color: var(--muted);
         font-size: 14px;
+      }
+      @media (max-width: 680px) {
+        .highlight {
+          grid-template-columns: 1fr;
+        }
+        .highlight:nth-child(even) .hl-media {
+          order: 0;
+        }
+        .why {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 28px;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <header>
-        <div class="logo">Q</div>
-        <h1>Qurio</h1>
-      </header>
-      <p class="tagline">Questions &amp; Answers for Atlassian Confluence Cloud.</p>
-
-      <p>
-        Qurio brings a fast, reliable questions-and-answers experience to
-        Confluence: full-text search across questions <em>and</em> answers,
-        embeddable page macros, voting and accepted answers, moderation, tags,
-        notifications, and English/German localization. It is built entirely on
-        <strong>Atlassian Forge</strong>, so your content never leaves your
-        Atlassian instance.
-      </p>
-
-      <div class="links">
-        <a href="./privacy.html">Privacy Policy</a>
-        <a href="./terms.html">Terms of Service</a>
-        <a href="mailto:martinnxb@gmail.com">Contact support</a>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="wrap">
+        <div class="brand">
+          <div class="logo">Q</div>
+          <div class="brand-name">Qurio</div>
+        </div>
+        <h1>Questions &amp; Answers for Confluence,<br />done right.</h1>
+        <p class="tagline">
+          A fast, private Q&amp;A &amp; FAQ for Confluence: full-text search,
+          voting, accepted answers and embeddable macros — 100% on Atlassian
+          Forge.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#" rel="noopener"
+            >Try free on the Atlassian Marketplace</a
+          >
+          <a class="btn btn-ghost" href="#highlights">See what it does</a>
+        </div>
+        <p class="trial">30-day free trial · free for sites up to 10 users</p>
       </div>
-
-      <h2>Key principles</h2>
-      <ul>
-        <li>Runs on Atlassian Forge — hosted on Atlassian infrastructure.</li>
-        <li>Your data is stored in Forge Storage within your own instance.</li>
-        <li>No external backend, no third-party servers operated by us.</li>
-        <li>No AI processing, no advertising, no selling of data.</li>
-      </ul>
-
-      <footer>
-        Qurio is published by <strong>nxb labs</strong>. Support:
-        <a href="mailto:martinnxb@gmail.com">martinnxb@gmail.com</a>.
-      </footer>
     </div>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights">
+      <div class="wrap">
+        <h2>Everything a Confluence Q&amp;A should be</h2>
+        <p class="section-intro">
+          Built to fix the things that make other Q&amp;A tools frustrating —
+          search that misses answers, data that disappears, accept buttons locked
+          to one person, and no way to embed Q&amp;A where people work.
+        </p>
+
+        <div class="highlight">
+          <div class="hl-text">
+            <h3>Search that actually finds answers</h3>
+            <p>
+              Qurio's full-text search reads the entire thread — question
+              <em>and</em> every answer, not just the title. Type a word that only
+              appears deep in an answer and Qurio still surfaces the right
+              question. Filter by space, tag or status and sort by newest, most
+              voted or unanswered.
+            </p>
+          </div>
+          <div class="hl-media">
+            <img
+              src="./assets/screenshot-search.png"
+              alt="Global Q&A page with search box, filters and sort"
+              onerror="this.outerHTML='&lt;div class=&quot;placeholder&quot;&gt;Screenshot: global Q&amp;amp;A page — search, filters &amp;amp; sort&lt;/div&gt;'"
+            />
+          </div>
+        </div>
+
+        <div class="highlight">
+          <div class="hl-text">
+            <h3>Embed Q&amp;A or an FAQ on any page</h3>
+            <p>
+              Drop the Qurio macro onto any Confluence page. Show the full
+              question list or a compact teaser of the latest questions that links
+              through to the full hub. Give each embed its own heading, scope it to
+              the space or the whole instance, and pin it to a fixed tag — so the
+              same app powers both a team Q&amp;A and a curated FAQ.
+            </p>
+          </div>
+          <div class="hl-media">
+            <img
+              src="./assets/screenshot-macro.png"
+              alt="Qurio macro embedded on a Confluence page with a custom heading"
+              onerror="this.outerHTML='&lt;div class=&quot;placeholder&quot;&gt;Screenshot: macro embedded on a page&lt;/div&gt;'"
+            />
+          </div>
+        </div>
+
+        <div class="highlight">
+          <div class="hl-text">
+            <h3>Vote, accept &amp; reward experts</h3>
+            <p>
+              Up/down-vote questions and answers, mark the accepted answer — the
+              author <em>or</em> a moderator can, so there is no lockout — and
+              reward your most helpful people with an expert leaderboard
+              (accepted +10, answer upvote +2, question +1). Prefer a quieter
+              space? Voting and points can be switched off completely.
+            </p>
+          </div>
+          <div class="hl-media">
+            <img
+              src="./assets/screenshot-detail.png"
+              alt="Question detail with accepted answer, votes and rich text"
+              onerror="this.outerHTML='&lt;div class=&quot;placeholder&quot;&gt;Screenshot: question detail — accepted answer &amp;amp; votes&lt;/div&gt;'"
+            />
+          </div>
+        </div>
+
+        <div class="highlight">
+          <div class="hl-text">
+            <h3>Private by design, flexible by default</h3>
+            <p>
+              Qurio runs entirely on Atlassian Forge. Your content lives in Forge
+              Storage inside your own Atlassian instance — no external server, no
+              third-party data store, no web or AI scraping. Add moderators,
+              control who may ask vs. who may answer, pin featured questions, and
+              run in English, German, Spanish or French.
+            </p>
+          </div>
+          <div class="hl-media">
+            <img
+              src="./assets/screenshot-settings.png"
+              alt="Moderator settings: voting toggle, who-can-ask/answer, expert panel"
+              onerror="this.outerHTML='&lt;div class=&quot;placeholder&quot;&gt;Screenshot: moderator settings &amp;amp; expert panel&lt;/div&gt;'"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section>
+      <div class="wrap">
+        <h2>Why teams choose Qurio</h2>
+        <p class="section-intro">
+          The details that separate a Q&amp;A people actually use from one they
+          abandon.
+        </p>
+        <ul class="why">
+          <li>
+            <strong>Search reads the whole thread</strong>
+            <span>Find answers by any word in the question or any answer.</span>
+          </li>
+          <li>
+            <strong>No surprise data loss</strong>
+            <span>Validated, atomic writes — nothing vanishes on refresh.</span>
+          </li>
+          <li>
+            <strong>Author or moderator accepts</strong>
+            <span>No lockout when the original asker is unavailable.</span>
+          </li>
+          <li>
+            <strong>Answers from your team</strong>
+            <span>Not scraped from the public internet or an external AI.</span>
+          </li>
+          <li>
+            <strong>Lives where people work</strong>
+            <span>Embed Q&amp;A/FAQ on any page with an "Ask" flow.</span>
+          </li>
+          <li>
+            <strong>Voting &amp; points optional</strong>
+            <span>Turn them off for works-council / data-protection needs.</span>
+          </li>
+          <li>
+            <strong>In-app notifications in Cloud</strong>
+            <span>Askers and followers stay in the loop.</span>
+          </li>
+          <li>
+            <strong>Four languages, auto-detected</strong>
+            <span>English, German, Spanish, French per user's Confluence.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section>
+      <div class="wrap">
+        <h2>Simple, fair pricing</h2>
+        <p class="section-intro">
+          Free for small teams, and cheaper per user as your deployment grows.
+          30-day free trial, no commitment.
+        </p>
+        <table>
+          <tr>
+            <th>Users</th>
+            <th>Price / user / month</th>
+          </tr>
+          <tr>
+            <td>1–10</td>
+            <td>Free (Atlassian small-team)</td>
+          </tr>
+          <tr>
+            <td>11–100</td>
+            <td>$0.90</td>
+          </tr>
+          <tr>
+            <td>101–250</td>
+            <td>$0.75</td>
+          </tr>
+          <tr>
+            <td>251–1000</td>
+            <td>$0.55</td>
+          </tr>
+          <tr>
+            <td>1001–5000</td>
+            <td>$0.40</td>
+          </tr>
+          <tr>
+            <td>5001+</td>
+            <td>$0.30</td>
+          </tr>
+        </table>
+        <p class="price-note">
+          Billed through Atlassian. Final pricing is shown on the Marketplace
+          listing.
+        </p>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES + LINKS -->
+    <section>
+      <div class="wrap">
+        <h2>Built on Atlassian Forge</h2>
+        <ul class="why">
+          <li>
+            <strong>Runs on Atlassian infrastructure</strong>
+            <span>No external backend, no third-party servers run by us.</span>
+          </li>
+          <li>
+            <strong>Your data stays in your instance</strong>
+            <span>Stored in Forge Storage within your own Atlassian Cloud.</span>
+          </li>
+          <li>
+            <strong>No AI processing of your content</strong>
+            <span>No advertising, no selling of data, no cookies.</span>
+          </li>
+          <li>
+            <strong>GDPR-ready</strong>
+            <span>Self-serve data erasure from the in-app Help dialog.</span>
+          </li>
+        </ul>
+        <div class="links">
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        Qurio Q&amp;A for Confluence · published by <strong>nxb labs</strong>
+      </div>
+    </footer>
   </body>
 </html>
