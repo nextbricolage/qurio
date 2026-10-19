@@ -1,6 +1,6 @@
 # Qurio — public legal pages
 
-Static pages for **Qurio — Q&A for Confluence** (published by **nxb labs**),
+Static pages for **Qurio Q&A for Confluence** (published by **nxb labs**),
 served via GitHub Pages at:
 
 - Home: https://nextbricolage.github.io/qurio/
