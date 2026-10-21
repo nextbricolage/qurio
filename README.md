@@ -5,19 +5,20 @@ served via GitHub Pages at:
 
 - Home: https://nextbricolage.github.io/qurio/
 - Privacy Policy: https://nextbricolage.github.io/qurio/privacy.html
-- Terms of Service: https://nextbricolage.github.io/qurio/terms.html
+- Impressum: https://nextbricolage.github.io/qurio/impressum.html
 
 These URLs are used in the Atlassian Developer Console → **Distribution** form
-(required "Privacy policy" / "Terms of service" fields) so the app can be set to
-**Sharing** and used by non-owner accounts.
+(required "Privacy policy" field) so the app can be set to **Sharing** and used
+by non-owner accounts. Atlassian's standard end-user agreement covers the terms
+of service, so no custom Terms page is required.
 
 ## Files
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Landing page with links to the legal pages + support contact. |
+| `index.html` | Landing page with links to the legal pages. |
 | `privacy.html` | Privacy Policy. |
-| `terms.html` | Terms of Service. |
+| `impressum.html` | Impressum (legal notice, § 5 DDG). |
 | `.nojekyll` | Disables Jekyll so files are served as-is (plain static HTML). |
 
 ## Enable GitHub Pages (one-time, after first push)
@@ -33,4 +34,4 @@ These URLs are used in the Atlassian Developer Console → **Distribution** form
 - **Company / Department:** nxb labs
 - **Customer support contact:** martinnxb@gmail.com
 - **Privacy policy URL:** https://nextbricolage.github.io/qurio/privacy.html
-- **Terms of service URL:** https://nextbricolage.github.io/qurio/terms.html
+- **Impressum URL:** https://nextbricolage.github.io/qurio/impressum.html
