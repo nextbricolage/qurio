@@ -8,6 +8,7 @@
       name="description"
       content="Qurio is a fast, private questions &amp; answers and FAQ app for Atlassian Confluence Cloud, built on Atlassian Forge. Full-text search, voting, accepted answers, embeddable macros. Your data stays inside your Atlassian instance."
     />
+    <link rel="icon" type="image/svg+xml" href="./assets/qurio-logo.svg" />
     <style>
       :root {
         --fg: #172b4d;
@@ -239,10 +240,121 @@
         color: var(--link);
         text-decoration: none;
       }
+      /* Feature grid */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 24px;
+      }
+      .feature {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+        background: var(--bg);
+      }
+      .feature h4 {
+        margin: 0 0 6px;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .feature .ic {
+        color: #0c66e4;
+        font-size: 16px;
+        line-height: 1;
+      }
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      /* Soft band for alternating sections */
+      .band {
+        background: var(--soft);
+      }
+      /* Teaser highlight: mock of a multi-column Confluence page */
+      .layout-mock {
+        display: grid;
+        grid-template-columns: 1fr 230px;
+        gap: 16px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: #fff;
+        padding: 18px;
+        box-shadow: 0 4px 16px rgba(9, 30, 66, 0.12);
+      }
+      .layout-mock .doc-col h5 {
+        margin: 0 0 10px;
+        font-size: 15px;
+      }
+      .layout-mock .doc-col .line {
+        height: 9px;
+        border-radius: 5px;
+        background: var(--soft);
+        margin: 7px 0;
+      }
+      .layout-mock .doc-col .line.short {
+        width: 55%;
+      }
+      .layout-mock .side-col img {
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        display: block;
+      }
+      .layout-mock .side-col .placeholder {
+        width: 100%;
+        aspect-ratio: 3 / 5;
+        border: 1px dashed var(--border);
+        border-radius: 8px;
+        background: var(--soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
+      }
+      /* About vendor */
+      .about-row {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+      .about-row img.vendor-logo {
+        width: 300px;
+        max-width: 100%;
+        height: auto;
+      }
+      .about-text {
+        flex: 1;
+        min-width: 280px;
+        color: var(--muted);
+      }
       footer {
         padding: 28px 0 56px;
         color: var(--muted);
         font-size: 14px;
+      }
+      footer .foot-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      footer .foot-brand img {
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+      }
+      @media (max-width: 860px) {
+        .feature-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
       @media (max-width: 680px) {
         .highlight {
@@ -252,6 +364,12 @@
           order: 0;
         }
         .why {
+          grid-template-columns: 1fr;
+        }
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+        .layout-mock {
           grid-template-columns: 1fr;
         }
         .hero h1 {
@@ -376,6 +494,39 @@
       </div>
     </section>
 
+    <!-- TEASER / SIDEBAR FAQ -->
+    <section class="band">
+      <div class="wrap">
+        <h2>A compact FAQ that fits right in your sidebar</h2>
+        <p class="section-intro">
+          Switch any embed to <strong>teaser mode</strong> and it shows just the
+          newest few questions with a link through to the full hub — perfect as a
+          narrow right-hand column in a multi-column Confluence page, next to your
+          docs. Pin it to a tag to turn it into a curated, always-visible FAQ.
+        </p>
+        <div class="layout-mock">
+          <div class="doc-col">
+            <h5>Onboarding guide</h5>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line short"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line short"></div>
+            <div class="line"></div>
+            <div class="line short"></div>
+          </div>
+          <div class="side-col">
+            <img
+              src="./assets/screenshot-teaser.png"
+              alt="Qurio teaser embedded as a narrow right-hand column beside page content"
+              onerror="this.outerHTML='&lt;div class=&quot;placeholder&quot;&gt;Teaser embed — newest questions + “view all” link, as a sidebar column&lt;/div&gt;'"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- WHY -->
     <section>
       <div class="wrap">
@@ -421,6 +572,67 @@
       </div>
     </section>
 
+    <!-- FEATURE GRID -->
+    <section class="band">
+      <div class="wrap">
+        <h2>Everything in the box</h2>
+        <p class="section-intro">
+          One focused app that covers the whole Q&amp;A workflow — from asking and
+          answering to moderating, embedding and reporting.
+        </p>
+        <div class="feature-grid">
+          <div class="feature">
+            <h4><span class="ic">🔍</span> Full-text search</h4>
+            <p>Reads the question <em>and</em> every answer, not just titles.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">⚙️</span> Filters &amp; sorting</h4>
+            <p>By space, tag or status; sort newest, most-voted, unanswered or featured.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">🧩</span> Embeddable macro</h4>
+            <p>Full list or teaser; custom heading, space/instance scope, pinned tag.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">📰</span> Teaser / sidebar FAQ</h4>
+            <p>Newest few questions plus a link to the hub — ideal as a column.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">⬆️</span> Voting &amp; accepted answers</h4>
+            <p>Up/down votes; the author <em>or</em> a moderator marks the best answer.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">🏆</span> Expert leaderboard</h4>
+            <p>Stack-Overflow-style points and a personal “Your stats” panel.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">⭐</span> Featured / pinned questions</h4>
+            <p>Surface canonical answers with a ★ — perfect for a curated FAQ.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">✍️</span> Rich text editor</h4>
+            <p>Markdown toolbar with live preview: links, images and code blocks.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">🔔</span> Notifications &amp; follow</h4>
+            <p>In-app inbox for new &amp; accepted answers; follow any question.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">🛡️</span> Roles &amp; permissions</h4>
+            <p>Moderators, plus who-can-ask vs. who-can-answer (everyone / mods / group).</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">🌍</span> Four languages</h4>
+            <p>English, German, Spanish and French — auto-detected per user.</p>
+          </div>
+          <div class="feature">
+            <h4><span class="ic">🔒</span> Private &amp; GDPR-ready</h4>
+            <p>100% Forge, data in your instance; self-serve erasure built in.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PRICING -->
     <section>
       <div class="wrap">
@@ -435,28 +647,40 @@
             <th>Price / user / month</th>
           </tr>
           <tr>
-            <td>1–10</td>
-            <td>Free (Atlassian small-team)</td>
+            <td>Up to 10 (flat fee)</td>
+            <td>Free</td>
           </tr>
           <tr>
             <td>11–100</td>
-            <td>$0.90</td>
+            <td>$0.59</td>
           </tr>
           <tr>
             <td>101–250</td>
-            <td>$0.75</td>
+            <td>$0.45</td>
           </tr>
           <tr>
             <td>251–1000</td>
-            <td>$0.55</td>
+            <td>$0.35</td>
           </tr>
           <tr>
-            <td>1001–5000</td>
-            <td>$0.40</td>
+            <td>1001–2500</td>
+            <td>$0.20</td>
           </tr>
           <tr>
-            <td>5001+</td>
-            <td>$0.30</td>
+            <td>2501–5000</td>
+            <td>$0.15</td>
+          </tr>
+          <tr>
+            <td>5001–7500</td>
+            <td>$0.10</td>
+          </tr>
+          <tr>
+            <td>7501–10000</td>
+            <td>$0.08</td>
+          </tr>
+          <tr>
+            <td>10001–100000</td>
+            <td>$0.05</td>
           </tr>
         </table>
         <p class="price-note">
@@ -495,9 +719,42 @@
       </div>
     </section>
 
+    <!-- ABOUT NXB LABS -->
+    <section class="band">
+      <div class="wrap">
+        <h2>Made by nxb labs</h2>
+        <div class="about-row">
+          <img
+            class="vendor-logo"
+            src="./assets/nxb-labs-logo.svg"
+            alt="nxb labs — Atlassian Forge apps"
+          />
+          <div class="about-text">
+            <p>
+              nxb labs is an independent studio building small, focused apps for
+              Atlassian Cloud. Everything we ship runs entirely on Atlassian
+              Forge — your data stays inside your own instance, there is no
+              external backend to trust, and there are no cookies, trackers or AI
+              pipelines in the way.
+            </p>
+            <p>
+              We pick one real, well-understood pain point at a time and solve it
+              properly — fast, private and pleasant to use — and we answer support
+              directly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <div class="wrap">
-        Qurio Q&amp;A for Confluence · published by <strong>nxb labs</strong>
+        <span class="foot-brand">
+          <img src="./assets/qurio-logo.svg" alt="Qurio" />
+          <span>Qurio Q&amp;A for Confluence</span>
+        </span>
+        · published by <strong>nxb labs</strong> ·
+        <a href="mailto:martinnxb@gmail.com">martinnxb@gmail.com</a>
       </div>
     </footer>
   </body>

@@ -1,0 +1,21 @@
+<svg width="560" height="160" viewBox="0 0 560 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="nxb labs">
+  <defs>
+    <linearGradient id="nxbGradH" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1D2B64"/>
+      <stop offset="1" stop-color="#5B4B8A"/>
+    </linearGradient>
+  </defs>
+  <!-- Mark -->
+  <g transform="translate(16,16)">
+    <rect x="0" y="0" width="128" height="128" rx="28" fill="url(#nxbGradH)"/>
+    <g transform="translate(64,64) scale(0.22) translate(-256,-256)">
+      <path d="M256 112 382 185 256 258 130 185Z" fill="#FFFFFF" fill-opacity="0.95"/>
+      <path d="M130 185 256 258 256 400 130 327Z" fill="#FFFFFF" fill-opacity="0.55"/>
+      <path d="M382 185 256 258 256 400 382 327Z" fill="#FFFFFF" fill-opacity="0.75"/>
+    </g>
+  </g>
+  <!-- Wordmark -->
+  <text x="168" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'DejaVu Sans', Arial, sans-serif" font-size="58" font-weight="700" fill="#172B4D" letter-spacing="-1">nxb</text>
+  <text x="300" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'DejaVu Sans', Arial, sans-serif" font-size="58" font-weight="400" fill="#5E6C84" letter-spacing="1">labs</text>
+  <text x="170" y="116" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'DejaVu Sans', Arial, sans-serif" font-size="18" font-weight="500" fill="#8993A4" letter-spacing="3">ATLASSIAN FORGE APPS</text>
+</svg>
