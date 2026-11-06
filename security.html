@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Security Policy — Qurio</title>
+    <meta
+      name="description"
+      content="Security Policy for Qurio, a Q&amp;A app for Atlassian Confluence Cloud built on Atlassian Forge: vulnerability reporting, supported versions, security practices and incident response."
+    />
+    <style>
+      :root {
+        --fg: #172b4d;
+        --muted: #5e6c84;
+        --link: #0c66e4;
+        --border: #dfe1e6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Helvetica, Arial, sans-serif;
+        color: var(--fg);
+        line-height: 1.65;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      h1 {
+        font-size: 28px;
+        margin: 0 0 4px;
+      }
+      h2 {
+        font-size: 19px;
+        margin: 32px 0 8px;
+      }
+      .updated {
+        color: var(--muted);
+        margin: 0 0 24px;
+      }
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 24px;
+        font-size: 14px;
+      }
+      code {
+        background: #f4f5f7;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 90%;
+      }
+      footer {
+        margin-top: 48px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="./index.html">← Qurio</a>
+      <h1>Security Policy</h1>
+      <p class="updated">Last updated: 6 November 2026</p>
+
+      <p>
+        <strong>Qurio Q&amp;A for Confluence</strong> ("Qurio", "the app") is a
+        100% Atlassian Forge app published on the Atlassian Marketplace by
+        <strong>nxb labs</strong>. It runs entirely on Atlassian Forge: there is
+        no external backend, no server we operate, and no outbound network calls.
+        All data is stored in <strong>Forge Storage</strong> inside the customer's
+        own Atlassian Cloud instance and is encrypted at rest by the Atlassian
+        platform.
+      </p>
+
+      <h2>Reporting a vulnerability</h2>
+      <p>
+        If you believe you have found a security vulnerability in Qurio, please
+        report it privately — <strong>do not</strong> open a public GitHub issue.
+      </p>
+      <ul>
+        <li>
+          <strong>Email:</strong>
+          <a href="mailto:martinnxb@gmail.com">martinnxb@gmail.com</a>
+        </li>
+        <li>
+          Please include: a description of the issue, steps to reproduce, affected
+          version, and any proof-of-concept details.
+        </li>
+        <li>
+          We acknowledge reports within <strong>2 business days</strong> and keep
+          you updated on remediation progress.
+        </li>
+      </ul>
+      <p>
+        Please give us a reasonable window to investigate and fix the issue before
+        any public disclosure. We do not currently operate a paid bug-bounty
+        program, but we credit reporters who responsibly disclose valid issues
+        (with their consent).
+      </p>
+
+      <h2>Supported versions</h2>
+      <p>
+        The latest version published on the Atlassian Marketplace is the supported
+        version and receives security fixes.
+      </p>
+
+      <h2>Our security practices</h2>
+      <ul>
+        <li>
+          <strong>Architecture:</strong> 100% Forge. No external backend, no
+          self-hosted servers, no <code>external.fetch</code> / egress
+          permissions. Data lives only in Forge Storage within the customer's
+          Atlassian Cloud instance (encrypted at rest; follows Atlassian data
+          residency).
+        </li>
+        <li>
+          <strong>No sensitive data:</strong> we store only the Atlassian
+          <code>accountId</code> — no passwords, tokens, emails, or usernames —
+          and we never log credentials or secrets.
+        </li>
+        <li>
+          <strong>Source control:</strong> GitHub with MFA required. As a
+          sole-developer project, changes are self-reviewed (diff review) and must
+          pass automated security scans (CodeQL, Dependabot, <code>npm audit</code>)
+          before a production deploy, following a documented pre-release checklist.
+        </li>
+        <li>
+          <strong>Automated scanning:</strong> CodeQL (SAST) on every push/PR and
+          weekly; Dependabot (SCA) for dependency vulnerabilities;
+          <code>npm audit</code> on dependencies.
+        </li>
+        <li>
+          <strong>SBOM:</strong> a CycloneDX Software Bill of Materials is
+          generated per release for both the Forge resolver and the Custom UI SPA,
+          so the full dependency inventory is auditable.
+        </li>
+        <li>
+          <strong>Secure coding:</strong> development follows the OWASP Top 10; all
+          writes are validated server-side in the Forge resolver.
+        </li>
+      </ul>
+
+      <h2>Incident response</h2>
+      <p>
+        We maintain a documented incident response plan. In the event of a
+        confirmed security incident or critical vulnerability, we notify affected
+        customers and Atlassian in line with Atlassian's Marketplace security
+        policies.
+      </p>
+
+      <h2>References (Atlassian Marketplace security program)</h2>
+      <ul>
+        <li>
+          <a
+            href="https://developer.atlassian.com/platform/marketplace/security-bugfix-policy/"
+            rel="noopener"
+            target="_blank"
+            >Security bug fix policy</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://developer.atlassian.com/platform/marketplace/app-vulnerability-notification-template/"
+            rel="noopener"
+            target="_blank"
+            >Vulnerability notification templates</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://developer.atlassian.com/platform/marketplace/app-security-incident-management-guidelines/"
+            rel="noopener"
+            target="_blank"
+            >Security incident management guidelines</a
+          >
+        </li>
+      </ul>
+
+      <h2>Contact</h2>
+      <p>
+        For security reports or questions about this app's security, contact nxb
+        labs at
+        <a href="mailto:martinnxb@gmail.com">martinnxb@gmail.com</a>.
+      </p>
+
+      <footer>
+        Qurio Q&amp;A for Confluence · published by nxb labs ·
+        <a href="./privacy.html">Privacy Policy</a> ·
+        <a href="./impressum.html">Impressum</a>
+      </footer>
+    </div>
+  </body>
+</html>
