@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Security Policy — Qurio</title>
+    <title>Data Security &amp; Privacy Statement — Qurio</title>
     <meta
       name="description"
-      content="Security Policy for Qurio, a Q&amp;A app for Atlassian Confluence Cloud built on Atlassian Forge: vulnerability reporting, supported versions, security practices and incident response."
+      content="Data security and privacy statement for Qurio, a Q&amp;A app for Atlassian Confluence Cloud built on Atlassian Forge: what data it processes, how it is stored and secured, retention and deletion, vulnerability reporting and incident response."
     />
     <style>
       :root {
@@ -63,6 +63,22 @@
         border-radius: 4px;
         font-size: 90%;
       }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 12px 0;
+      }
+      th,
+      td {
+        border: 1px solid var(--border);
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+        font-size: 15px;
+      }
+      th {
+        background: #f4f5f7;
+      }
       footer {
         margin-top: 48px;
         padding-top: 16px;
@@ -75,20 +91,173 @@
   <body>
     <div class="wrap">
       <a class="back" href="./index.html">← Qurio</a>
-      <h1>Security Policy</h1>
-      <p class="updated">Last updated: 6 November 2026</p>
+      <h1>Data Security &amp; Privacy Statement</h1>
+      <p class="updated">Last updated: 9 November 2026</p>
 
       <p>
         <strong>Qurio Q&amp;A for Confluence</strong> ("Qurio", "the app") is a
         100% Atlassian Forge app published on the Atlassian Marketplace by
-        <strong>nxb labs</strong>. It runs entirely on Atlassian Forge: there is
-        no external backend, no server we operate, and no outbound network calls.
-        All data is stored in <strong>Forge Storage</strong> inside the customer's
-        own Atlassian Cloud instance and is encrypted at rest by the Atlassian
-        platform.
+        <strong>nxb labs</strong>. This statement explains what data the app
+        processes, how and where it is stored, how it is secured, and how it is
+        retained and deleted. For the full legal privacy terms see the
+        <a href="./privacy.html">Privacy Policy</a>.
+      </p>
+      <p>
+        In short: Qurio runs entirely on Atlassian Forge. There is
+        <strong>no external backend, no server we operate, and no outbound
+        network calls</strong>. All data is stored in
+        <strong>Forge Storage</strong> inside the customer's own Atlassian Cloud
+        instance and is encrypted at rest by the Atlassian platform. Your content
+        is <strong>never transmitted to nxb labs</strong> or to any third party
+        outside Atlassian's platform.
       </p>
 
-      <h2>Reporting a vulnerability</h2>
+      <h2>1. What data Qurio processes</h2>
+      <p>
+        Qurio only processes data that users create, or that Atlassian provides to
+        the app in order to render its features:
+      </p>
+      <table>
+        <tr>
+          <th>Data</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td>Questions, answers, tags, votes and "accepted answer" status</td>
+          <td>Core Q&amp;A functionality that users explicitly enter.</td>
+        </tr>
+        <tr>
+          <td>Atlassian <code>accountId</code> and public display name of the acting user</td>
+          <td>To attribute questions/answers, compute statistics and expert rankings, and manage moderators and permissions.</td>
+        </tr>
+        <tr>
+          <td>Space key and page ID references</td>
+          <td>To scope content to a space and link questions back to their source page.</td>
+        </tr>
+        <tr>
+          <td>Group membership (read via the Confluence API, read&nbsp;only)</td>
+          <td>To enforce the optional "who can ask / answer" permission settings and moderator role.</td>
+        </tr>
+        <tr>
+          <td>In-app notifications</td>
+          <td>To notify a question's author or followers about new or accepted answers.</td>
+        </tr>
+        <tr>
+          <td>Per-macro and instance configuration (e.g. heading, scope, display mode, voting on/off)</td>
+          <td>To remember how each embedded macro and the instance is configured.</td>
+        </tr>
+      </table>
+      <p>
+        Qurio does <strong>not</strong> collect email addresses, IP addresses,
+        passwords, tokens, payment information, or any special categories of
+        personal data. We store only the Atlassian <code>accountId</code> as the
+        identifier — never passwords, tokens, emails, or usernames — and we never
+        log credentials or secrets. The app uses <strong>no cookies</strong>, no
+        third-party analytics, and performs <strong>no AI/LLM processing</strong>
+        of your content.
+      </p>
+
+      <h2>2. How the data is used</h2>
+      <p>
+        Data is used solely to provide the app's functionality inside your
+        Confluence instance. We do <strong>not</strong> sell, rent, share, or use
+        your data for advertising, profiling, or any purpose unrelated to
+        operating the app.
+      </p>
+
+      <h2>3. Where data is stored, residency and access</h2>
+      <ul>
+        <li>
+          <strong>Storage:</strong> all application data lives only in
+          <strong>Forge Storage</strong> within the customer's own Atlassian Cloud
+          environment, encrypted at rest by Atlassian and following Atlassian data
+          residency.
+        </li>
+        <li>
+          <strong>No provider access:</strong> because the data stays in Forge
+          Storage inside your instance, nxb labs has <strong>no routine
+          access</strong> to your content. Forge lets developers read application
+          logs for troubleshooting; we only review logs if you contact us with a
+          support request, and we ask you not to include sensitive information in
+          support correspondence.
+        </li>
+        <li>
+          <strong>Least-privilege permissions:</strong> the app requests only
+          three scopes — <code>storage:app</code> (its own data store),
+          <code>read:confluence-user</code> (resolve a display name for the
+          signed-in viewer) and <code>read:confluence-groups</code> (enforce the
+          who-can-ask/answer and moderator settings). It holds no write scope on
+          Confluence content and reads no page, space, or document bodies.
+        </li>
+      </ul>
+
+      <h2>4. Data retention and deletion</h2>
+      <p>
+        Content remains in Forge Storage until it is deleted through the app or
+        until the app is uninstalled. When you <strong>uninstall Qurio</strong>,
+        Atlassian removes the app's Forge Storage data according to the Forge
+        platform lifecycle. Within the app you can delete data in two ways:
+      </p>
+      <ul>
+        <li>
+          <strong>Delete individual posts:</strong> the author of a question or
+          answer (and any moderator) can delete it directly. Deleting a question
+          also removes its answers and votes.
+        </li>
+        <li>
+          <strong>Delete all my data (right to erasure):</strong> from the in-app
+          <em>Help</em> dialog (the "?" button), any user can erase their own
+          personal data. This anonymizes the questions and answers you authored —
+          they are kept, but no longer linked to you, so other people's threads
+          stay readable — and removes the votes you cast, your notifications, and
+          your follows. A moderator can carry out the same erasure on a user's
+          behalf when handling a data-subject request.
+        </li>
+      </ul>
+      <p>
+        See the <a href="./privacy.html">Privacy Policy</a> for the controller /
+        processor relationship and how to exercise data-subject rights.
+      </p>
+
+      <h2>5. Our security practices</h2>
+      <ul>
+        <li>
+          <strong>Architecture:</strong> 100% Forge. No external backend, no
+          self-hosted servers, no <code>external.fetch</code> / egress
+          permissions. Data lives only in Forge Storage within the customer's
+          Atlassian Cloud instance (encrypted at rest; follows Atlassian data
+          residency).
+        </li>
+        <li>
+          <strong>Server-side authorization:</strong> every write is validated and
+          authorized server-side in the Forge resolver by a fail-closed role model
+          (author / moderator / configurable group gates); the front end can never
+          grant itself a right.
+        </li>
+        <li>
+          <strong>Source control:</strong> GitHub with MFA required. As a
+          sole-developer project, changes are self-reviewed (diff review) and must
+          pass automated security scans (CodeQL, Dependabot, <code>npm audit</code>)
+          before a production deploy, following a documented pre-release checklist.
+        </li>
+        <li>
+          <strong>Automated scanning:</strong> CodeQL (SAST) on every push/PR and
+          weekly; Dependabot (SCA) for dependency vulnerabilities;
+          <code>npm audit</code> on dependencies.
+        </li>
+        <li>
+          <strong>SBOM:</strong> a CycloneDX Software Bill of Materials is
+          generated per release for both the Forge resolver and the Custom UI SPA,
+          so the full dependency inventory is auditable.
+        </li>
+        <li>
+          <strong>Secure coding:</strong> development follows the OWASP Top 10, with
+          server-side input validation (non-empty and length caps) on all
+          user-supplied text.
+        </li>
+      </ul>
+
+      <h2>6. Reporting a vulnerability</h2>
       <p>
         If you believe you have found a security vulnerability in Qurio, please
         report it privately — <strong>do not</strong> open a public GitHub issue.
@@ -111,52 +280,11 @@
         Please give us a reasonable window to investigate and fix the issue before
         any public disclosure. We do not currently operate a paid bug-bounty
         program, but we credit reporters who responsibly disclose valid issues
-        (with their consent).
+        (with their consent). The latest version published on the Atlassian
+        Marketplace is the supported version and receives security fixes.
       </p>
 
-      <h2>Supported versions</h2>
-      <p>
-        The latest version published on the Atlassian Marketplace is the supported
-        version and receives security fixes.
-      </p>
-
-      <h2>Our security practices</h2>
-      <ul>
-        <li>
-          <strong>Architecture:</strong> 100% Forge. No external backend, no
-          self-hosted servers, no <code>external.fetch</code> / egress
-          permissions. Data lives only in Forge Storage within the customer's
-          Atlassian Cloud instance (encrypted at rest; follows Atlassian data
-          residency).
-        </li>
-        <li>
-          <strong>No sensitive data:</strong> we store only the Atlassian
-          <code>accountId</code> — no passwords, tokens, emails, or usernames —
-          and we never log credentials or secrets.
-        </li>
-        <li>
-          <strong>Source control:</strong> GitHub with MFA required. As a
-          sole-developer project, changes are self-reviewed (diff review) and must
-          pass automated security scans (CodeQL, Dependabot, <code>npm audit</code>)
-          before a production deploy, following a documented pre-release checklist.
-        </li>
-        <li>
-          <strong>Automated scanning:</strong> CodeQL (SAST) on every push/PR and
-          weekly; Dependabot (SCA) for dependency vulnerabilities;
-          <code>npm audit</code> on dependencies.
-        </li>
-        <li>
-          <strong>SBOM:</strong> a CycloneDX Software Bill of Materials is
-          generated per release for both the Forge resolver and the Custom UI SPA,
-          so the full dependency inventory is auditable.
-        </li>
-        <li>
-          <strong>Secure coding:</strong> development follows the OWASP Top 10; all
-          writes are validated server-side in the Forge resolver.
-        </li>
-      </ul>
-
-      <h2>Incident response</h2>
+      <h2>7. Incident response</h2>
       <p>
         We maintain a documented incident response plan. In the event of a
         confirmed security incident or critical vulnerability, we notify affected
@@ -164,7 +292,7 @@
         policies.
       </p>
 
-      <h2>References (Atlassian Marketplace security program)</h2>
+      <h2>8. References (Atlassian Marketplace security program)</h2>
       <ul>
         <li>
           <a
@@ -192,16 +320,17 @@
         </li>
       </ul>
 
-      <h2>Contact</h2>
+      <h2>9. Contact</h2>
       <p>
-        For security reports or questions about this app's security, contact nxb
-        labs at
+        For security reports or questions about this app's data handling, contact
+        nxb labs at
         <a href="mailto:martinnxb@gmail.com">martinnxb@gmail.com</a>.
       </p>
 
       <footer>
         Qurio Q&amp;A for Confluence · published by nxb labs ·
         <a href="./privacy.html">Privacy Policy</a> ·
+        <a href="./guide.html">User Guide</a> ·
         <a href="./impressum.html">Impressum</a>
       </footer>
     </div>

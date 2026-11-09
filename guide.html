@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Guide — Qurio</title>
+    <meta
+      name="description"
+      content="How to use Qurio, a Q&amp;A and FAQ app for Atlassian Confluence Cloud: embed the macro, ask and answer questions, accept answers, vote, use tags and search, feature FAQs, configure moderators and permissions, and manage your data."
+    />
+    <style>
+      :root {
+        --fg: #172b4d;
+        --muted: #5e6c84;
+        --link: #0c66e4;
+        --border: #dfe1e6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Helvetica, Arial, sans-serif;
+        color: var(--fg);
+        line-height: 1.65;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      h1 {
+        font-size: 28px;
+        margin: 0 0 4px;
+      }
+      h2 {
+        font-size: 19px;
+        margin: 36px 0 8px;
+      }
+      h3 {
+        font-size: 16px;
+        margin: 22px 0 6px;
+      }
+      .updated {
+        color: var(--muted);
+        margin: 0 0 24px;
+      }
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      ul,
+      ol {
+        padding-left: 22px;
+      }
+      li {
+        margin: 4px 0;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 24px;
+        font-size: 14px;
+      }
+      code {
+        background: #f4f5f7;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 90%;
+      }
+      .toc {
+        background: #f4f5f7;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 14px 18px;
+        margin: 24px 0;
+        font-size: 15px;
+      }
+      .toc strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+      .note {
+        border-left: 3px solid var(--link);
+        background: #f0f6ff;
+        padding: 10px 14px;
+        margin: 14px 0;
+        border-radius: 0 6px 6px 0;
+        font-size: 15px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 12px 0;
+      }
+      th,
+      td {
+        border: 1px solid var(--border);
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+        font-size: 15px;
+      }
+      th {
+        background: #f4f5f7;
+      }
+      footer {
+        margin-top: 48px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="./index.html">← Qurio</a>
+      <h1>User Guide</h1>
+      <p class="updated">Last updated: 9 November 2026</p>
+
+      <p>
+        <strong>Qurio</strong> adds a Stack-Overflow-style Q&amp;A and FAQ
+        experience to Atlassian Confluence Cloud: ask and answer questions, mark
+        an accepted answer, vote, organize with tags, and embed a question list on
+        any page. This guide walks through everything the app does. Qurio runs
+        100% on Atlassian Forge — there is nothing to install on a server and no
+        account to create beyond installing the app from the Marketplace.
+      </p>
+
+      <div class="toc">
+        <strong>Contents</strong>
+        <a href="#install">1. Install &amp; first steps</a> ·
+        <a href="#views">2. The two ways to view Q&amp;A</a> ·
+        <a href="#ask">3. Asking a question</a> ·
+        <a href="#answer">4. Answering &amp; accepting</a> ·
+        <a href="#vote">5. Voting</a> ·
+        <a href="#organize">6. Tags, search &amp; featured FAQs</a> ·
+        <a href="#notify">7. Notifications &amp; following</a> ·
+        <a href="#stats">8. Stats &amp; experts</a> ·
+        <a href="#macro">9. Configuring an embedded macro</a> ·
+        <a href="#admin">10. Moderators &amp; permissions</a> ·
+        <a href="#data">11. Managing &amp; deleting your data</a> ·
+        <a href="#roles">12. Who can do what</a>
+      </div>
+
+      <h2 id="install">1. Install &amp; first steps</h2>
+      <ol>
+        <li>
+          Install Qurio on your site from the
+          <a href="https://marketplace.atlassian.com/" rel="noopener" target="_blank">Atlassian Marketplace</a>
+          and approve the requested permissions.
+        </li>
+        <li>
+          Anyone who administers the Confluence site is automatically a Qurio
+          <strong>moderator</strong> — there is no "claim" step, so you have full
+          control immediately after install.
+        </li>
+        <li>
+          Open Qurio either from the global page or by embedding the macro on a
+          page (see the next section).
+        </li>
+      </ol>
+
+      <h2 id="views">2. The two ways to view Q&amp;A</h2>
+      <h3>The global page</h3>
+      <p>
+        Qurio adds a <strong>"Qurio Q&amp;A"</strong> global page to Confluence
+        (reachable from the Apps menu). It shows the full question list across your
+        instance — the best place for a central Q&amp;A hub.
+      </p>
+      <h3>The embeddable macro</h3>
+      <p>
+        On any Confluence page, edit the page and insert the
+        <strong>"Qurio Q&amp;A / FAQ"</strong> macro (type <code>/Qurio</code> in
+        the editor). The macro renders a question list inline, scoped and styled by
+        its per-embed settings (section 9). Use it to put a focused FAQ or a
+        space's Q&amp;A directly where readers are.
+      </p>
+      <div class="note">
+        The macro's <strong>display settings</strong> (gear icon) appear only while
+        you are <strong>editing the page</strong>. In normal (view) mode readers
+        just see the question list plus the "?" help button.
+      </div>
+
+      <h2 id="ask">3. Asking a question</h2>
+      <ol>
+        <li>Click <strong>Ask a question</strong>.</li>
+        <li>
+          Enter a <strong>title</strong> and a <strong>body</strong>, and
+          optionally add up to <strong>8 tags</strong> to categorize it.
+        </li>
+        <li>Submit. Your question appears at the top of the list as "open".</li>
+      </ol>
+      <p>
+        You are automatically set to <strong>follow</strong> your own question, so
+        you are notified when someone answers it. Questions and answers have
+        generous length limits (titles up to 300 characters; bodies up to 30,000)
+        — enough for detailed posts while keeping input sane.
+      </p>
+
+      <h2 id="answer">4. Answering &amp; accepting</h2>
+      <p>
+        Open a question and use <strong>Post an answer</strong> to reply. A
+        question can have many answers.
+      </p>
+      <p>
+        The <strong>question's author</strong> (or any moderator) can mark one
+        answer as the <strong>accepted answer</strong> with the check mark. The
+        accepted answer is highlighted and the question's status becomes
+        "answered". Accepting is a toggle — you can switch it to a different answer
+        or clear it. The answer's author is notified when their answer is accepted.
+      </p>
+
+      <h2 id="vote">5. Voting</h2>
+      <p>
+        Give questions and answers a thumbs up or down to surface the most useful
+        content. Voting is <strong>idempotent</strong> (clicking again clears your
+        vote) and you <strong>cannot vote on your own</strong> posts. A moderator
+        can turn voting off instance-wide in the settings (section 10).
+      </p>
+
+      <h2 id="organize">6. Tags, search &amp; featured FAQs</h2>
+      <ul>
+        <li>
+          <strong>Tags:</strong> add tags when asking; then filter the list by a
+          tag. The tag list is derived live from the questions that actually use a
+          tag, so it never shows orphans.
+        </li>
+        <li>
+          <strong>Search:</strong> full-text search across question titles, bodies
+          and answers, with sorting (newest, most voted, etc.).
+        </li>
+        <li>
+          <strong>Featured / FAQ:</strong> a moderator can <strong>pin</strong> a
+          question as featured. Featured questions are surfaced first — ideal for
+          building a curated FAQ at the top of a list or macro.
+        </li>
+        <li>
+          <strong>Status:</strong> questions are "open", "answered" (an answer was
+          accepted) or "closed". A question's author or a moderator can change the
+          status; a closed question accepts no new answers.
+        </li>
+      </ul>
+
+      <h2 id="notify">7. Notifications &amp; following</h2>
+      <p>
+        Qurio keeps lightweight in-app notifications (the bell icon). Authors and
+        answerers are auto-followed; anyone else can <strong>follow</strong> a
+        question to be notified of new activity, or unfollow to stop. You are
+        notified when a question you follow gets a new answer, and when your answer
+        is accepted.
+      </p>
+
+      <h2 id="stats">8. Stats &amp; experts</h2>
+      <p>
+        Qurio can show a <strong>"Your stats"</strong> box and an
+        <strong>experts leaderboard</strong>. Points are awarded
+        Stack-Overflow-style:
+      </p>
+      <table>
+        <tr><th>Action</th><th>Points</th></tr>
+        <tr><td>Your answer is accepted</td><td>+10</td></tr>
+        <tr><td>An upvote on your answer</td><td>+2 each</td></tr>
+        <tr><td>You ask a question</td><td>+1</td></tr>
+      </table>
+      <p>
+        The leaderboard shows the top contributors; anonymized (erased) users never
+        appear. Both boxes are optional per macro (section 9).
+      </p>
+
+      <h2 id="macro">9. Configuring an embedded macro</h2>
+      <p>
+        While editing a page, select the Qurio macro and open its settings (gear).
+        Each embed is configured independently:
+      </p>
+      <table>
+        <tr><th>Setting</th><th>What it does</th></tr>
+        <tr><td><strong>Heading</strong></td><td>A custom title shown above the list.</td></tr>
+        <tr><td><strong>Scope</strong></td><td>Show questions from <em>this space</em> only, or from <em>all</em> spaces.</td></tr>
+        <tr><td><strong>Tag filter</strong></td><td>Limit the embed to a single tag (e.g. a focused FAQ).</td></tr>
+        <tr><td><strong>Display mode</strong></td><td><em>Full</em> list, or a compact <em>teaser</em> showing the first N questions.</td></tr>
+        <tr><td><strong>Teaser count</strong></td><td>How many questions the teaser shows.</td></tr>
+        <tr><td><strong>Show stats / Show experts</strong></td><td>Toggle the "Your stats" box and experts leaderboard for this embed.</td></tr>
+        <tr><td><strong>Full-view link</strong></td><td>An optional link from a teaser to the full list.</td></tr>
+      </table>
+      <div class="note">
+        These are <strong>display-only</strong> settings for that one embed. They
+        never change who may ask/answer or whether voting is on — those are
+        instance-wide and moderator-only (next section).
+      </div>
+
+      <h2 id="admin">10. Moderators &amp; permissions</h2>
+      <p>
+        Open the instance <strong>settings</strong> (available to moderators). Here
+        you control, for the whole instance:
+      </p>
+      <ul>
+        <li><strong>Voting:</strong> on or off.</li>
+        <li>
+          <strong>Who can ask</strong> and <strong>who can answer:</strong>
+          <em>Everyone</em>, <em>Moderators only</em>, or members of a specific
+          <em>Confluence group</em>.
+        </li>
+      </ul>
+      <p>
+        <strong>Who is a moderator?</strong> Every Confluence site administrator is
+        automatically a moderator, and moderators can add or remove additional
+        moderators explicitly. Moderators can accept answers on any question, edit
+        or delete any post, feature questions, change settings, and erase a user's
+        data on their behalf.
+      </p>
+
+      <h2 id="data">11. Managing &amp; deleting your data</h2>
+      <ul>
+        <li>
+          <strong>Delete a post:</strong> the author (or a moderator) can delete a
+          question or answer. Deleting a question also removes its answers and
+          votes.
+        </li>
+        <li>
+          <strong>Delete all my data:</strong> open the in-app <strong>Help</strong>
+          dialog (the "?" button) and choose to erase your data. Your authored
+          posts are anonymized (kept so other threads stay readable, but no longer
+          linked to you), and your votes, notifications and follows are removed.
+        </li>
+      </ul>
+      <p>
+        See the <a href="./security.html">Data Security &amp; Privacy Statement</a>
+        and <a href="./privacy.html">Privacy Policy</a> for full details on data
+        handling, retention and your rights.
+      </p>
+
+      <h2 id="roles">12. Who can do what</h2>
+      <table>
+        <tr><th>Action</th><th>Who</th></tr>
+        <tr><td>Ask a question</td><td>Per settings: everyone / group / moderators</td></tr>
+        <tr><td>Answer a question</td><td>Per settings: everyone / group / moderators</td></tr>
+        <tr><td>Vote</td><td>Any signed-in user (not on own posts; if voting is enabled)</td></tr>
+        <tr><td>Accept an answer</td><td>The question's author, or a moderator</td></tr>
+        <tr><td>Edit / delete a post</td><td>The post's author, or a moderator</td></tr>
+        <tr><td>Feature (pin) a question</td><td>Moderators only</td></tr>
+        <tr><td>Change instance settings</td><td>Moderators only</td></tr>
+        <tr><td>Configure a macro embed (display)</td><td>Anyone editing the page</td></tr>
+        <tr><td>Erase a user's data</td><td>The user themselves, or a moderator on their behalf</td></tr>
+      </table>
+
+      <h2>Need help?</h2>
+      <p>
+        Questions, feedback or a bug to report? Contact nxb labs at
+        <a href="mailto:martinnxb@gmail.com">martinnxb@gmail.com</a>.
+      </p>
+
+      <footer>
+        Qurio Q&amp;A for Confluence · published by nxb labs ·
+        <a href="./security.html">Data Security &amp; Privacy</a> ·
+        <a href="./privacy.html">Privacy Policy</a> ·
+        <a href="./impressum.html">Impressum</a>
+      </footer>
+    </div>
+  </body>
+</html>
